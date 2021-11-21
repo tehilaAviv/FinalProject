@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css	">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript"  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js	"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js	"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh0yhb-6lv9BwhY-DSor_BzB-wxtq0L1M&callback=initAutocomplete&libraries=places&v=weekly" async></script>
+    <link rel="stylesheet" href="/stylesheets/ad.css">
+    <script src="./js/validationFields.js"></script>
+    <script src="./js/autocompleteArea.js"></script>
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                <h2 id="heading">חיפוש</h2>
+                <p>מלא את כל שדות הטופס כדי לעבור לשלב הבא</p>
+                <div>
+                    <div class="bg-white">
+                            <h3 id="heading">סוג העסקה:</h3>
+                        <div class="df-switch">
+                            <button onclick="hide()" type="button" class="btn btn-lg btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off">
+                                <div class="inner-handle"></div>
+                                <div class="handle"></div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sale">
+                    <form id="msform" action="/form/submitSearchSale" method="post">                    <!-- progressbar -->
+                    <ul id="progressbar1">
+                        <li class="active" id="account"><strong>פרטי הנכס</strong></li>
+                        <li id="personal"><strong>מאפיינים</strong></li>
+                        <li id="neches"><strong>מידע בסיסי</strong></li>
+                        <li id="confirm"><strong>סיום</strong></li>
+                    </ul>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div> <br> <!-- fieldsets -->
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">פרטי הנכס:</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">שלב 1-5</h2>
+                                </div>
+                            </div>
+                            <label class="fieldlabels">כתובת </label>
+                            <input id="ship-address" autocomplete="off" type="text" name="address_ss" placeholder="הכנס מיקום"  required/>
+<!--                            <label class="fieldlabels">עיר </label>-->
+<!--                            <input id="locality" name="locality" required />-->
+                            <!--                                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh0yhb-6lv9BwhY-DSor_BzB-wxtq0L1M&callback=initAutocomplete&libraries=places&v=weekly" async></script>-->
+                            <label class="fieldlabels">סוג הנכס</label>
+                            <select class="form-select" id="inputGroupSelect03" name="type_property_ss" aria-label="Example select with button addon" required>
+                                <option selected>בחר...</option>
+                                <option value="1" name="apartment_ss">דירה</option>
+                                <option value="2" name="garden_apartment_ss">דירת גן</option>
+                                <option value="3" name="villa_ss">וילה</option>
+                                <option value="4" name="penthouse_ss">גג/פנטהוז</option>
+                                <option value="5" name="duplex_ss">דופלקס</option>
+                                <option value="6" name="triplex_ss">טריפלקס</option>
+                                <option value="7" name="unit_ss">יחידת דיור</option>
+                                <option value="8" name="vacation_apartment_ss">דירת נופש</option>
+                                <option value="9" name="studio_ss">סטודיו/לופט</option>
+                                <option value="10" name="private house_ss">בית פרטי/קוטג'</option>
+                                <option value="11" name="assisted_living_ss">דיור מוגן</option>
+                                <option value="12" name="parking_ss">חניה</option>
+                                <option value="13" name="Storage_ss">מחסן</option>
+                            </select>
+                            <div class="row">
+                            <div class="col-4">
+                                <label class="fieldlabels">ממחיר</label> <input id="form1" type="number" name="From_price_ss" placeholder="" required/>
+                            </div>
+                                <div class="col-4">
+                                    <label class="fieldlabels">עד מחיר</label> <input id="form1" type="number" name="Until_Price_ss" placeholder="" required/>
+                            </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label class="fieldlabels">ממ"ר</label> <input id="form1" type="number" name="From_square_meters_ss" placeholder="" required/>
+                                </div>
+                                <div class="col-4">
+                                    <label class="fieldlabels">עד מ"ר</label> <input id="form1" type="number" name="Until_square_meters_ss" placeholder="" required/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label class="fieldlabels">ממספר חדרים</label> <input id="form1" type="number" name="From_num_rooms_ss" placeholder="" required/>
+                                </div>
+                                <div class="col-4">
+                                    <label class="fieldlabels">עד מספר חדרים</label> <input id="form1" type="number" name="Until_num_rooms_ss" placeholder="" required/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <label class="fieldlabels">מקומה</label> <input id="form1" type="number" name="from_floor_ss" placeholder="" required/>
+                                </div>
+                                <div class="col-4">
+                                    <label class="fieldlabels">עד קומה</label> <input id="form1" type="number" name="Until_floor_ss" placeholder="" required/>
+                                </div>
+                            </div>
+
+                                <div class="col-3">
+                                    <label>
+                                        <input type="checkbox" class="mr-1" name="available_immediately_ss">כניסה מיידית
+                                    </label>
+                                </div>
+                        </div> <input type="button" onclick="check_ss()" name="next" class="next action-button" value="לשלב הבא" />
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">מאפיינים:</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">שלב 2-5</h2>
+                                </div>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-6">
+                                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading" role="tab" id="headingOne">
+                                                        <h4 class="panel-title">
+                                                            <a class="first" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                                פרטים נוספים
+                                                                <span> </span>
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                                        <div>
+                                                            <div class="row">
+                                                                    <div class="col-md-3 col-sm-3">
+                                                            <label class="container">
+                                                                <input type="checkbox" class="mr-1" name="air_conditioning_ss">מיזוג
+                                                            </label>
+                                                            <label class="container">
+                                                                <input type="checkbox" class="mr-1" name="sun_Terrace_ss">מרפסת שמש
+                                                            </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="terrace_ss">מרפסת
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="Yard_ss">חצר
+                                                                        </label>
+                                                        </div>
+                                                                    <div class="col-md-3 col-sm-3">
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="elevator_ss">מעלית
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="renovated_ss">משופצת
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="bars_ss">סורגים
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="parking_ss">חניה
+                                                                        </label>
+                                                                    </div>
+                                                                <div class="col-md-3 col-sm-3">
+                                                                    <label class="container">
+                                                                        <input type="checkbox" class="mr-1" name="MMD_room_ss">ממ"ד
+                                                                    </label>
+                                                                    <label class="container">
+                                                                        <input type="checkbox" class="mr-1" name="architectural_Design_ss">עיצוב אדריכלי
+                                                                    </label>
+                                                                    <label class="container">
+                                                                        <input type="checkbox" class="mr-1" name="Storage_ss">מחסן
+                                                                    </label>
+                                                                    <label class="container">
+                                                                        <input type="checkbox" class="mr-1" name="accessibility_ss">נגישות
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-md-3 col-sm-3">
+                                                                    <label class="container">
+                                                                        <input type="checkbox" class="mr-1" name="furnished_and_equipped_ss">מרוהט ומאובזר
+                                                                    </label>
+                                                                    <label class="container">
+                                                                        <input type="checkbox" class="mr-1" name="High_ceiling_ss">תקרה גבוהה
+                                                                    </label>
+                                                                    <label class="container">
+                                                                        <input type="checkbox" class="mr-1" name="new_property_ss">נכס חדש
+                                                                    </label>
+                                                                </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                </div>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading" role="tab" id="headingTwo">
+                                                        <h4 class="panel-title">
+                                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                                על האזור
+                                                                <span> </span>
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                        <div>
+                                                            <div class=" row">
+                                                                <div class="col-md-4 col-sm-4">
+                                                                    <label class="container">
+                                                                        <input type="checkbox" class="mr-1" name="quiet_area_ss">אזור שקט
+                                                                    </label>
+                                                                    <label class="container">
+                                                                        <input type="checkbox" class="mr-1" name="close_to_kindergartens_ss">קרוב לגני ילדים
+                                                                    </label>
+                                                                    <label class="container">
+                                                                        <input type="checkbox" class="mr-1" name="secure_area_ss">אזור מאובטח
+                                                                    </label>
+                                                                    <label class="container">
+                                                                        <input type="checkbox" class="mr-1" name="close_to_train_ss">קרוב לרכבת
+                                                                    </label>
+                                                                    <label class="container">
+                                                                        <input type="checkbox" class="mr-1" name="view_of_park_ss">נוף לפארק
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-md-4 col-sm-4">
+                                                                    <label class="container">
+                                                                        <input type="checkbox" class="mr-1" name="close_to_gym_ss">קרוב לחדר כושר
+                                                                    </label>
+                                                                    <label class="container">
+                                                                        <input type="checkbox" class="mr-1" name="close_to_hospital_ss">קרוב לבית חולים
+                                                                    </label>
+                                                                    <label class="container">
+                                                                        <input type="checkbox" class="mr-1" name="close_to_shopping_center_ss">קרוב למרכזי קניות
+                                                                    </label>
+                                                                    <label class="container">
+                                                                        <input type="checkbox" class="mr-1" name="close_to_park_ss">קרוב לפארק
+                                                                    </label>
+                                                                    <label class="container">
+                                                                        <input type="checkbox" class="mr-1" name="close_to_HM_ss">קרוב לקופת חולים
+                                                                    </label>
+                                                                </div>
+                                                                <div class="col-md-4 col-sm-4">
+                                                                    <label class="container">
+                                                                        <input type="checkbox" class="mr-1" name="close_to_public_transportation_ss">קרוב לתחבורה ציבורית
+                                                                    </label>
+                                                                    <label class="container">
+                                                                        <input type="checkbox" class="mr-1" name="close_to_airport_ss">קרוב לשדה תעופה
+                                                                    </label>
+                                                                    <label class="container">
+                                                                        <input type="checkbox" class="mr-1" name="close_to_school_ss">קרוב לבי"ס
+                                                                    </label>
+                                                                    <label class="container">
+                                                                        <input type="checkbox" class="mr-1" name="near_the_sea_ss">קרוב לים
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                                    <div class="col-4"></div>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading" role="tab" id="headingThree">
+                                                        <h4 class="panel-title">
+                                                            <a class="collapsed last" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                                תוספות
+                                                                <span> </span>
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                        <div>
+                                                            <div>
+                                                                   <div class=" row">
+                                                                    <div class="col-md-4 col-sm-4">
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="Master_unit_ss">יחידת הורים
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="Jacuzzi_ss">ג'קוזי
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="Swimming_pool_ss">בריכת שחיה
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="Water_heating_on_gas_ss">חימום מים על גז
+                                                                        </label>
+
+
+                                                                    </div>
+                                                                    <div class="col-md-4 col-sm-4">
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="Guard_in_the_building_ss">שומר בבנין
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="underground_parking_lot_ss">חניון תת קרקעי
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="parquet_ss">פרקט
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="equipped_kitchen_ss">מטבח מאובזר
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-md-4 col-sm-4">
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="Bicycle_room_ss">חדר אופניים
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="Security_Cameras_ss">מצלמות אבטחה
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="Irrigation_system_ss">מערכת השקייה
+                                                                        </label>
+                                                                    </div>
+                                                                </div>                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                        </div>  <input type="button" name="next" class="next action-button" value="לשלב הבא" /> <input type="button" name="previous" class="previous action-button-previous" value="לשלב הקודם" />
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">מידע בסיסי:</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">שלב 4-5</h2>
+                                </div>
+                            </div>
+                            <label class="fieldlabels">שם</label> <input id="form1" type="text" name="name_ss" placeholder="" required />
+                            <label class="fieldlabels">מייל</label> <input id="form1" type="email" name="email_ss" placeholder="" required />
+                            <label class="fieldlabels">טלפון</label> <input id="form1" type="tel"  name="phone_ss" placeholder="" required/>
+                            <label class="fieldlabels"> טלפון נוסף</label> <input id="form1" type="tel"  name="anotherPhone_ss" placeholder=""/>
+                            <label class="fieldlabels">טקסט חופשי</label> <input id="form1" type="text"  name="free_text_ss" placeholder=""/>
+                        </div> <input type="button" onclick="validation_ss()" name="next" class="next action-button" value="לשלב הבא" /> <input type="button" name="previous" class="previous action-button-previous" value="לשלב הקודם" />
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">סיום:</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">שלב 5-5</h2>
+                                </div>
+                            </div> <br><br>
+                            <h2 class="purple-text text-center"><strong>המודעה התקבלה בהצלחה!</strong></h2> <br>
+                            <div class="row justify-content-center">
+                                <div class="col-3"> <img width="115px" src="assets/img/image2.jpg"> </div>
+                            </div> <br><br>
+                        </div>
+                        <input type="submit" name="next" class="action-button" value="סיום"/>
+                    </fieldset>
+                </form>
+                    </div>
+                    <div id="rent">
+                        <form id="msform" action="/form/submitSearchRenting" method="post">
+                            <!-- progressbar -->
+                            <ul id="progressbar1">
+                                <li class="active" id="account"><strong>פרטי הנכס</strong></li>
+                                <li id="personal"><strong>מאפיינים</strong></li>
+                                <li id="neches"><strong>מידע בסיסי</strong></li>
+                                <li id="confirm"><strong>סיום</strong></li>
+                            </ul>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div> <br>
+                        <fieldset>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">פרטי הנכס:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">שלב 1-5</h2>
+                                    </div>
+                                </div>
+                                <label class="fieldlabels">כתובת </label>
+                                <input id="ship-address" autocomplete="off" type="text" name="address_rs" placeholder="הכנס מיקום"  required/>
+<!--                                <label class="fieldlabels">עיר </label>-->
+<!--                                <input id="locality" name="locality" required />-->
+                                <!--                                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh0yhb-6lv9BwhY-DSor_BzB-wxtq0L1M&callback=initAutocomplete&libraries=places&v=weekly" async></script>-->
+                                <label class="fieldlabels">סוג הנכס</label>
+                                <select class="form-select" id="inputGroupSelect03" name="type_property_rs" aria-label="Example select with button addon" required>
+                                    <option selected>בחר...</option>
+                                    <option value="1" name="apartment_rs">דירה</option>
+                                    <option value="2" name="garden_apartment_rs">דירת גן</option>
+                                    <option value="3" name="villa_rs">וילה</option>
+                                    <option value="4" name="penthouse_rs">גג/פנטהוז</option>
+                                    <option value="5" name="duplex_rs">דופלקס</option>
+                                    <option value="6" name="triplex_rs">טריפלקס</option>
+                                    <option value="7" name="unit_rs">יחידת דיור</option>
+                                    <option value="8" name="vacation_apartment_rs">דירת נופש</option>
+                                    <option value="9" name="studio_rs">סטודיו/לופט</option>
+                                    <option value="10" name="private house_rs">בית פרטי/קוטג'</option>
+                                    <option value="11" name="assisted_living_rs">דיור מוגן</option>
+                                    <option value="12" name="parking_rs">חניה</option>
+                                    <option value="13" name="Storage_rs">מחסן</option>
+                                </select>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <label class="fieldlabels">ממחיר</label> <input id="form1" type="number" name="From_price_rs" placeholder="" required/>
+                                    </div>
+                                    <div class="col-4">
+                                        <label class="fieldlabels">עד מחיר</label> <input id="form1" type="number" name="Until_Price_rs" placeholder="" required/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-8">
+                                <label class="fieldlabels">מספר תשלומים בשנה</label>
+                                <select class="form-select" id="inputGroupSelect03" name="Number_of_payments_rs" aria-label="Example select with button addon" required>
+                                    <option selected>בחר...</option>
+                                    <option value="1" name="1_rs">1</option>
+                                    <option value="2" name="2_rs">2</option>
+                                    <option value="3" name="3_rs">3</option>
+                                    <option value="4" name="4_rs">4</option>
+                                    <option value="5" name="5_rs">5</option>
+                                    <option value="6" name="6_rs">6</option>
+                                    <option value="7" name="7_rs">7</option>
+                                    <option value="8" name="8_rs">8</option>
+                                    <option value="9" name="9_rs">9</option>
+                                    <option value="10" name="10_rs">10</option>
+                                    <option value="11" name="11_rs">11</option>
+                                    <option value="12" name="12_rs">12</option>
+                                </select>
+                                </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <label class="fieldlabels">ממ"ר</label> <input id="form1" type="number" name="From_square_meters_rs" placeholder="" required/>
+                                    </div>
+                                    <div class="col-4">
+                                        <label class="fieldlabels">עד מ"ר</label> <input id="form1" type="number" name="Until_square_meters_rs" placeholder="" required/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <label class="fieldlabels">ממספר חדרים</label> <input id="form1" type="number" name="From_num_rooms_rs" placeholder="" required/>
+                                    </div>
+                                    <div class="col-4">
+                                        <label class="fieldlabels">עד מספר חדרים</label> <input id="form1" type="number" name="Until_num_rooms_rs" placeholder="" required />
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <label class="fieldlabels">מקומה</label> <input id="form1" type="number" name="from_floor_rs" placeholder="" required/>
+                                    </div>
+                                    <div class="col-4">
+                                        <label class="fieldlabels">עד קומה</label> <input id="form1" type="number" name="Until_floor_rs" placeholder="" required/>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <label>
+                                        <input type="checkbox" class="mr-1" name="available_immediately_rs">כניסה מיידית
+                                    </label>
+                                </div>
+                            </div> <input id="form1" type="button" onclick="check_rs()" name="next" class="next action-button" value="לשלב הבא" />
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">מאפיינים:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">שלב 2-5</h2>
+                                    </div>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-offset-3 col-md-6">
+                                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" role="tab" id="headingOne">
+                                                            <h4 class="panel-title">
+                                                                <a class="first" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                                    פרטים נוספים
+                                                                    <span> </span>
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                                            <div>
+                                                                 <div class=" row">
+                                                                    <div class="col-3">
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="architectural_Design_rs">עיצוב אדריכלי
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="Storage_rs">מחסן
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="terrace_rs">מרפסת
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="Yard_rs">חצר
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="new_property_rs">נכס חדש
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-3">
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="elevator_rs">מעלית
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="renovated_rs">משופצת
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="bars_rs">סורגים
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="MMD_room_rs">ממ"ד
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-3">
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="short_range_rs" id="short_range_rs">לטווח קצר
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="long_range_rs" id="long_range_rs">לטווח ארוך
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="parking_rs">חניה
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="accessibility_rs">נגישות
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-3">
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="air_conditioning_rs">מיזוג
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="sun_Terrace_rs">מרפסת שמש
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="furnished_and_equipped_rs">מרוהט ומאובזר
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="high_ceiling_rs">תקרה גבוהה
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                                            <h4 class="panel-title">
+                                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                                    על האזור
+                                                                    <span> </span>
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                            <div>
+                                                                <div class="row">
+                                                                    <div class="col-4">
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="quiet_area_rs">אזור שקט
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="close_to_kindergartens_rs">קרוב לגני ילדים
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="secure_area_rs">אזור מאובטח
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="close_to_train_rs">קרוב לרכבת
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="view_of_park_rs">נוף לפארק
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-4">
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="close_to_gym_rs">קרוב לחדר כושר
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="close_to_hospital_rs">קרוב לבית חולים
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="close_to_shopping_center_rs">קרוב למרכזי קניות
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="close_to_park_rs">קרוב לפארק
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="close_to_HM_rs">קרוב לקופת חולים
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-4">
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="close_to_public_transportation_rs">קרוב לתחבורה ציבורית
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="close_to_airport_rs">קרוב לשדה תעופה
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="close_to_school_rs">קרוב לבי"ס
+                                                                        </label>
+                                                                        <label class="container">
+                                                                            <input type="checkbox" class="mr-1" name="near_the_sea_rs">קרוב לים
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4"></div>
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab" id="headingThree">
+                                                                <h4 class="panel-title">
+                                                                    <a class="collapsed last" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                                        תוספות
+                                                                        <span> </span>
+                                                                    </a>
+                                                                </h4>
+                                                            </div>
+                                                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                                <div>
+                                                                    <div>
+                                                                          <div class=" row">
+                                                                            <div class="col-4">
+                                                                                <label class="container">
+                                                                                    <input type="checkbox" class="mr-1" name="Master_unit_rs">יחידת הורים
+                                                                                </label>
+                                                                                <label class="container">
+                                                                                    <input type="checkbox" class="mr-1" name="Jacuzzi_rs">ג'קוזי
+                                                                                </label>
+                                                                                <label class="container">
+                                                                                    <input type="checkbox" class="mr-1" name="Swimming_pool_rs">בריכת שחיה
+                                                                                </label>
+                                                                                <label class="container">
+                                                                                    <input type="checkbox" class="mr-1" name="Water_heating_on_gas_rs">חימום מים על גז
+                                                                                </label>
+
+
+                                                                            </div>
+                                                                              <div class="col-4">
+                                                                                  <label class="container">
+                                                                                      <input type="checkbox" class="mr-1" name="Guard_in_the_building_rs">שומר בבנין
+                                                                                  </label>
+                                                                                  <label class="container">
+                                                                                      <input type="checkbox" class="mr-1" name="underground_parking_lot_rs">חניון תת קרקעי
+                                                                                  </label>
+                                                                                  <label class="container">
+                                                                                      <input type="checkbox" class="mr-1" name="parquet_rs">פרקט
+                                                                                  </label>
+                                                                                  <label class="container">
+                                                                                      <input type="checkbox" class="mr-1" name="equipped_kitchen_rs">מטבח מאובזר
+                                                                                  </label>
+                                                                              </div>
+                                                                              <div class="col-4">
+                                                                                  <label class="container">
+                                                                                      <input type="checkbox" class="mr-1" name="Bicycle_room_rs">חדר אופניים
+                                                                                  </label>
+                                                                                  <label class="container">
+                                                                                      <input type="checkbox" class="mr-1" name="Security_Cameras_rs">מצלמות אבטחה
+                                                                                  </label>
+                                                                                  <label class="container">
+                                                                                      <input type="checkbox" class="mr-1" name="Irrigation_system_rs">מערכת השקייה
+                                                                                  </label>
+                                                                            </div>
+                                                                        </div>                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                   </div>
+                                    </div>
+                                </div>
+                            </div>  <input type="button" onclick="validation()" name="next" class="next action-button" value="לשלב הבא" /> <input type="button" name="previous" class="previous action-button-previous" value="לשלב הקודם" />
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">מידע בסיסי:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">שלב 4-5</h2>
+                                    </div>
+                                </div>
+                                <label class="fieldlabels">שם</label> <input id="form1" type="text" name="name_rs" placeholder="" required />
+                                <label class="fieldlabels">מייל</label> <input id="form1" type="email" aria-describedby="emailHelp" name="email_rs" required/>
+                                <label class="fieldlabels">טלפון</label> <input id="form1" type="tel"  name="phone_rs" placeholder="" required/>
+                                <label class="fieldlabels"> טלפון נוסף</label> <input id="form1" type="tel"  name="anotherPhone_rs" placeholder="" />
+                                <label class="fieldlabels">טקסט חופשי</label> <input id="form1" type="text"  name="free_text_rs" placeholder=""/>
+                            </div> <input type="button" onclick="validation_rs()" name="next" class="next action-button"  value="לשלב הבא" /> <input type="button" name="previous" class="previous action-button-previous" value="לשלב הקודם" />
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">סיום:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">שלב 5-5</h2>
+                                    </div>
+                                </div> <br><br>
+                                <h2 class="purple-text text-center"><strong>המודעה התקבלה בהצלחה!</strong></h2> <br>
+                                <div class="row justify-content-center">
+                                    <div class="col-3"> <img width="115px" src="assets/img/image2.jpg"> </div>
+                                </div> <br><br>
+                            </div>
+                            <input type="submit" name="next" class="action-button" value="סיום"/>
+                        </fieldset>
+                        </form>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

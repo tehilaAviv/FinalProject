@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Easiest Way to Add Input Masks to Your Forms</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/register.css">
+</head>
+<body id="page-top">
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <!--  main-menu show-search-header-->
+    <div class="container-fluid">
+        <img width="180px" src="assets/img/navbar-logo.png" alt="" />
+    </div>
+</nav>
+<div class="registration-form">
+    <form action="/register/signUp" method="post">
+        <div class="form-icon">
+            <span><i class="icon icon-user"></i></span>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="username" name="name_f" placeholder="שם משתמש" required>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" id="password" name="password" placeholder="סיסמא" pattern=".{8,}" title="הכנס לפחות 8 תווים" pattern="[!@#$%^&*][a-z][A-Z][0-9]" title="הכנס אותיות באנלית, מספרים ותווים בלבד" required >
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" id="password1" name="password1" placeholder="אימות סיסמא" pattern=".{8,}" title="הכנס לפחות 8 תווים" pattern="[!@#$%^&*][a-z][A-Z][0-9]" title="הכנס אותיות באנלית, מספרים ותווים בלבד" required>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="email" name="email_f" placeholder="מייל" required>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="phone-number" name="phone_number_f" placeholder="מספר פלאפון" required>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="birth-date" name="birth_date_f" placeholder="תאריך לידה" required>
+        </div>
+        <p style="color: red"><%=msg%></p>
+        <div class="form-group">
+            <button type="submit" class="btn btn-block create-account form-control">צור חשבון</button>
+        </div>
+    </form>
+    <div class="social-media"></div>
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+</body>
+</html>

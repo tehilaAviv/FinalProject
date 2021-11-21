@@ -1,0 +1,745 @@
+body{
+    margin-top: 50px !important;
+}
+a:hover, a:focus{
+    text-decoration: none !important;
+    outline: none !important;
+
+}
+.panel-group .panel{
+    background-color: #fff;
+    border:none;
+    box-shadow:none;
+    border-radius: 10px;
+    margin-bottom:11px;
+}
+.panel .panel-heading{
+    padding: 0;
+    border-radius:10px;
+    border: none;
+}
+.panel-heading a{
+    color:#fff !important;
+    display: block;
+    border:none;
+    padding:20px 35px 20px;
+    width: 605px;
+    height: 50px;
+    font-size: 20px;
+    background-color:#17a2b8;
+    font-weight:600;
+    position: relative;
+    color:#fff;
+    box-shadow:none;
+    transition:all 0.1s ease 0s;
+}
+.panel-heading a:after, .panel-heading a.collapsed:after{
+    content: "\f068";
+    font-family: fontawesome;
+    text-align: center;
+    position: absolute;
+    left:-20px;
+    top: 10px;
+    color:#fff;
+    background-color:#17a2b8;
+    border: 5px solid #fff;
+    font-size: 15px;
+    width: 40px;
+    height:40px;
+    line-height: 30px;
+    border-radius: 50%;
+    transition:all 0.3s ease 0s;
+}
+.panel-heading:hover a:after,
+.panel-heading:hover a.collapsed:after{
+    transform:rotate(360deg);
+}
+.panel-heading a.collapsed:after{
+    content: "\f067";
+}
+.col-3{
+    margin-right: -14px;
+}
+#accordion .panel-body{
+    background-color:#Fff;
+    color:#8C8C8C;
+    line-height: 25px;
+    padding: 10px 25px 20px 35px ;
+    border-top:none;
+    font-size:14px;
+    position: relative;
+}
+#countryList {
+    width: 70%;
+    padding-left: 11%;
+}
+.bs-example{
+    margin: 10px;
+    border-bottom: 1px solid #ccc;
+}
+* {
+    margin: 0;
+    padding: 0
+}
+
+html {
+    height: 100%
+}
+
+p {
+    color: grey;
+    font-size: 20px;
+}
+
+#heading {
+    text-transform: uppercase;
+    color: #17a2b8;
+    font-weight: normal
+}
+
+#msform {
+    text-align: center;
+    position: relative;
+    margin-top: 20px
+}
+input.mr-1{
+    margin: 5px 4.5px 8px 8px;
+}
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 20px;
+    font-size: 18px;
+    position: relative
+}
+
+.form-card {
+    text-align: right;
+}
+
+#msform fieldset:not(:first-of-type) {
+    display: none
+}
+
+#form1{
+    padding: 8px 15px 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    background-color: #ECEFF1;
+    font-size: 16px;
+    letter-spacing: 1px;
+
+    /*background-color: #fff;*/
+    /*font-family: Roboto;*/
+    /*font-size: 15px;*/
+    /*font-weight: 300;*/
+    /*margin-left: 12px;*/
+    /*padding: 0 11px 0 13px;*/
+    /*text-overflow: ellipsis;*/
+    /*width: 400px;*/
+}
+
+#msform input:focus,
+#msform textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #17a2b8;
+    outline-width: 0
+}
+
+#msform .action-button {
+    width: 100px;
+    background: #17a2b8;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 0px 10px 5px;
+    float: left;
+}
+
+#msform .action-button:hover,
+#msform .action-button:focus {
+    background-color: #117a8b;
+}
+
+#msform .action-button-previous {
+    width: 100px;
+    background: #616161;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px 10px 0px;
+    float: right
+}
+
+#msform .action-button-previous:hover,
+#msform .action-button-previous:focus {
+    background-color: #000000
+}
+
+.card {
+    z-index: 0;
+    border: none;
+    position: relative
+}
+
+.fs-title {
+    font-size: 25px;
+    color: #17a2b8;
+    margin-bottom: 15px;
+    font-weight: normal;
+    text-align: left
+}
+
+.purple-text {
+    color: #17a2b8;
+    font-weight: normal
+}
+.myaccordion {
+    max-width: 500px;
+    margin: 50px auto;
+    box-shadow: 0 0 1px rgba(0,0,0,0.1);
+}
+
+.myaccordion .card,
+.myaccordion .card:last-child .card-header {
+    border: none;
+}
+
+.myaccordion .card-header {
+    border-bottom-color: #EDEFF0;
+    background: transparent;
+}
+
+.myaccordion .fa-stack {
+    font-size: 18px;
+}
+
+.myaccordion .btn {
+    width: 100%;
+    font-weight: bold;
+    color: #004987;
+    padding: 0;
+}
+
+.myaccordion .btn-link:hover,
+.myaccordion .btn-link:focus {
+    text-decoration: none;
+}
+
+.myaccordion li + li {
+    margin-top: 10px;
+}
+
+.steps {
+    font-size: 25px;
+    color: gray;
+    margin-bottom: 10px;
+    font-weight: normal;
+    text-align: right
+}
+
+.fieldlabels {
+    color: gray;
+    text-align: left;
+}
+
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: lightgrey
+}
+
+#progressbar .active {
+    color: #17a2b8
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 15px;
+    width: 20%;
+    float: right;
+    position: relative;
+    font-weight: 400
+}
+
+
+#progressbar #account:before {
+    font-family: FontAwesome;
+    content: "\f13e"
+}
+#progressbar #neches:before {
+    font-family: FontAwesome;
+    content: "\f13e"
+}
+
+#progressbar #personal:before {
+    font-family: FontAwesome;
+    content: "\f007"
+}
+
+#progressbar #payment:before {
+    font-family: FontAwesome;
+    content: "\f030"
+}
+
+#progressbar #confirm:before {
+    font-family: FontAwesome;
+    content: "\f00c"
+}
+
+#progressbar li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    display: block;
+    font-size: 20px;
+    color: #ffffff;
+    background: lightgray;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px
+}
+
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    z-index: -1
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background:#17a2b8
+}
+
+.progress {
+    height: 20px
+}
+
+.progress-bar {
+    background-color: #17a2b8
+}
+/*    */
+#progressbar1 {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: lightgrey
+}
+
+#progressbar1 .active {
+    color: #17a2b8
+}
+
+#progressbar1 li {
+    list-style-type: none;
+    font-size: 15px;
+    width: 25%;
+    float: right;
+    position: relative;
+    font-weight: 400
+}
+
+
+#progressbar1 #account:before {
+    font-family: FontAwesome;
+    content: "\f13e"
+}
+#progressbar1 #neches:before {
+    font-family: FontAwesome;
+    content: "\f13e"
+}
+
+#progressbar1 #personal:before {
+    font-family: FontAwesome;
+    content: "\f007"
+}
+
+#progressbar1 #payment:before {
+    font-family: FontAwesome;
+    content: "\f030"
+}
+
+#progressbar1 #confirm:before {
+    font-family: FontAwesome;
+    content: "\f00c"
+}
+
+#progressbar1 li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    display: block;
+    font-size: 20px;
+    color: #ffffff;
+    background: lightgray;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px
+}
+
+#progressbar1 li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    z-index: -1
+}
+
+#progressbar1 li.active:before,
+#progressbar1 li.active:after {
+    background:#17a2b8
+}
+
+.progress {
+    height: 20px
+}
+
+.progress-bar1 {
+    background-color: #17a2b8
+}
+
+.fit-image {
+    width: 100%;
+    object-fit: cover
+}
+.form-check-label{
+    text-align: right;
+    margin-right: 35px;
+}
+.form-select
+{
+    background-color: #ECEFF1;
+    width: 100%;
+    height: 42px;
+    outline-width: 0;
+    border: 1px solid #ccc;
+    margin-bottom: 25px;
+    margin-top: 2px;
+}
+.section {
+    text-align: center;
+    height: 100%;
+    margin: 0 auto;
+    padding: 6em 0; }
+.section__title {
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #fff;
+    margin-bottom: 3em; }
+.section--aava {
+    background: #2994B2; }
+.section--tuuli {
+    background: #474744; }
+.section--vesi {
+    background: #54567A; }
+.section--sade {
+    background: #2D4659; }
+.section--ilma {
+    background: #095062; }
+.section--tuli {
+    background: #068B78; }
+/*.toggle-button {*/
+/*    margin: 0 20px; }*/
+.container{
+    font-size: 18px;
+    margin: 1px;
+}
+div.row{
+    margin-top: 5px;
+}
+div.col-4{
+    margin-bottom: 10px;
+}
+.df-switch {
+    margin-top: 20px;
+    padding: 2rem;
+    text-align: center;
+}
+.btn-toggle {
+    top: 50%;
+    transform: translateY(-50%);
+}
+.btn-toggle {
+    margin: 0 4rem;
+    padding: 0;
+    position: relative;
+    border: none;
+    height: 1.5rem;
+    width: 5rem;
+    border-radius: 1.5rem;
+    color: #6b7381;
+    background: #0885da;
+}
+.btn-toggle:focus,
+.btn-toggle.focus,
+.btn-toggle:focus.active,
+.btn-toggle.focus.active {
+    outline: none;
+}
+.btn-toggle:before,
+.btn-toggle:after {
+    line-height: 1.5rem;
+    width: 4rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: absolute;
+    bottom: 0;
+    transition: opacity 0.25s;
+}
+.btn-toggle:before {
+    content: 'השכרה';
+    left: -5rem;
+    color: #109fff;
+}
+.btn-toggle:after {
+    content: 'מכירה';
+    right: -5rem;
+    opacity: 0.5;
+    color: #F47280;
+}
+.btn-toggle > .inner-handle {
+    border-radius: 13px;
+    width: 37px;
+    height: 13px;
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    background-color: #0f71bd;
+    box-shadow: inset 1px 1px 2px -1px black;
+}
+.btn-toggle.active > .inner-handle {
+    background-color: #BD4053;
+}
+.btn-toggle > .handle:before {
+    content: "";
+    position: absolute;
+    height: 34px;
+    width: 34px;
+    top: 35%;
+    left: 11px;
+    background-image: radial-gradient(circle at center, #0785da 5px, transparent 5px);
+    background-size: 10px 10px;
+    background-repeat: no-repeat;
+}
+.btn-toggle.active > .handle:before {
+    background-image: radial-gradient(circle at center, #F47280 5px, transparent 5px);
+}
+.btn-toggle > .handle {
+    position: absolute;
+    top: -0.2875rem;
+    left: 0.3875rem;
+    width: 2.125rem;
+    height: 2.125rem;
+    border-radius: 1.125rem;
+    background: #fff;
+    transition: left 0.25s;
+    border: 1px solid #ccc;
+}
+.btn-toggle.active {
+    transition: background-color 0.25s;
+}
+.btn-toggle.active > .handle {
+    left: 2.4175rem;
+    transition: left 0.25s;
+}
+.btn-toggle.active:before {
+    opacity: 0.5;
+}
+.btn-toggle.active:after {
+    opacity: 1;
+    color: #F47280;
+}
+.btn-toggle.active {
+    background-color: #F47280;
+}
+.btn-toggle.btn-lg {
+    margin: 0 5rem;
+    padding: 0;
+    position: relative;
+    border: none;
+    height: 2.5rem;
+    width: 5rem;
+    border-radius: 2.5rem;
+}
+.btn-toggle.btn-lg:focus,
+.btn-toggle.btn-lg.focus,
+.btn-toggle.btn-lg:focus.active,
+.btn-toggle.btn-lg.focus.active {
+    outline: none;
+}
+.btn-toggle.btn-lg:before,
+.btn-toggle.btn-lg:after {
+    line-height: 2.5rem;
+    width: 5rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: absolute;
+    bottom: 0;
+    transition: opacity 0.25s;
+}
+.btn-toggle.btn-lg:before {
+    content: 'מכירה';
+    left: -6rem;
+}
+.btn-toggle.btn-lg:after {
+    content: 'השכרה';
+    right: -8rem;
+    opacity: 0.5;
+}
+.btn-toggle.btn-lg > .handle {
+    position: absolute;
+    top: 0.3125rem;
+    left: 0.3125rem;
+    width: 1.875rem;
+    height: 1.875rem;
+    border-radius: 1.875rem;
+    background: #fff;
+    transition: left 0.25s;
+}
+.btn-toggle.btn-lg.active {
+    transition: background-color 0.25s;
+}
+.btn-toggle.btn-lg.active > .handle {
+    left: 2.8125rem;
+    transition: left 0.25s;
+}
+.btn-toggle.btn-lg.active:before {
+    opacity: 0.5;
+}
+.btn-toggle.btn-lg.active:after {
+    opacity: 1;
+}
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+    height: 50%;
+    width: 30%;
+}
+
+/* Optional: Makes the sample page fill the window. */
+/*html,*/
+/*body {*/
+/*    height: 100%;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
+
+#description {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+#infowindow-content .title {
+    font-weight: bold;
+}
+
+#infowindow-content {
+    display: none;
+}
+
+#map #infowindow-content {
+    display: inline;
+}
+
+.pac-card {
+    margin: 10px 10px 0 0;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    font-family: Roboto;
+}
+
+#pac-container {
+    padding-bottom: 12px;
+    margin-right: 12px;
+}
+
+.pac-controls {
+    display: inline-block;
+    padding: 5px 11px;
+}
+
+.pac-controls label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+
+#ship-address {
+    padding: 8px 15px 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: inherit;
+    /*font-family: "Roboto", sans-serif;*/
+    font-size: 18px;
+    color: #2C3E50;
+    background-color: #ECEFF1;
+    /*width: 400px;*/
+}
+#locality {
+    padding: 8px 15px 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: inherit;
+    /*font-family: "Roboto", sans-serif;*/
+    font-size: 18px;
+    color: #2C3E50;
+    background-color: #ECEFF1;
+    /*width: 400px;*/
+}
+#pac-input:focus {
+    border-color: #4d90fe;
+}
+
+#title {
+    color: #fff;
+    background-color: #4d90fe;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 6px 12px;
+}
