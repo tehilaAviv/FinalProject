@@ -14,7 +14,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh0yhb-6lv9BwhY-DSor_BzB-wxtq0L1M&callback=initAutocomplete&libraries=places&v=weekly" async></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet"/>
     <link rel="stylesheet" href="/stylesheets/ad.css">
     <script src="./js/autocompleteArea.js"></script>
@@ -68,7 +67,6 @@
                                 <input id="ship-address" autocomplete="off" type="text" name="address_as" placeholder="הכנס מיקום"  required/>
                                 <label class="fieldlabels">עיר </label>
                                     <input id="locality" type="text"  name="city_as" placeholder="" required />
-<!--                                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh0yhb-6lv9BwhY-DSor_BzB-wxtq0L1M&callback=initAutocomplete&libraries=places&v=weekly" async></script>-->
                                 <label class="fieldlabels">סוג הנכס</label>
                                 <select class="form-select" id="inputGroupSelect03"   name="type_property_as"
                                         aria-label="Example select with button addon">
@@ -506,8 +504,10 @@
                                 <input id="ship-address" autocomplete="off" type="text" name="address_ar" placeholder="הכנס מיקום"  required/>
                                 <label class="fieldlabels">עיר </label>
                                 <input id="locality" type="text" name="city_ar" required />
-                                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANtFQxXSibMy6HAzjQePzos8JrB9qX-G8&callback=initAutocomplete&libraries=places&v=weekly" async></script>
-                                <label class="fieldlabels">סוג הנכס</label>
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=places&v=weekly"
+      async
+    ></script>                                <label class="fieldlabels">סוג הנכס</label>
                                 <select class="form-select" id="inputGroupSelect03" name="type_property_ar"
                                         aria-label="Example select with button addon">
                                     <option selected>בחר...</option>
