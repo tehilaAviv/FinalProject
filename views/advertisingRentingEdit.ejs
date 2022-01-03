@@ -44,8 +44,10 @@
                             <label class="fieldlabels">כתובת </label>
 
                             <input id="ship-address" autocomplete="off" type="text" name="address_ar" placeholder="הכנס מיקום" value="<%=address_ar%>" required/>
-                            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh0yhb-6lv9BwhY-DSor_BzB-wxtq0L1M&callback=initAutocomplete&libraries=places&v=weekly" async></script>
-                            <label class="fieldlabels">סוג הנכס</label>
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=places&v=weekly"
+      async
+    ></script>                            <label class="fieldlabels">סוג הנכס</label>
                             <select class="form-select" id="inputGroupSelect03" name="type_property_ar"
                                     aria-label="Example select with button addon" >
                                 <option selected><%=type_property_ar%></option>
